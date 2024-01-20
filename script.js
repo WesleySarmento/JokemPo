@@ -1,45 +1,43 @@
-/*
-for(let i = 0; i <= 15; i++){
-    console.log(i)
-}
-*/
+const result = document.querySelector('.result')
+const humanScore = document.querySelector('#human-score')
+const machineScore = document.querySelector('#machine-score')
+const resultImg = document.querySelector('.result-img')
 
-/*
-function sum(value, value2){
-    console.log (value + value2)
-}
+let humanScoreNumber = 0
+let machineScoreNumber = 0
 
-function sub (value, value2){
-    console.log (value - value2)
+const playHuman = (humanChoice) => {
+
+    playTheGame(humanChoice, playMachine()) 
 }
 
-function div(value, value2){
-    console.log(value / value2)
+const playMachine = () => {
+    const choices = ['rock', 'paper', 'scissors'];
+    const radomNumber = Math.floor(Math.random() * 3)
+
+
+   return choices [radomNumber]
 }
 
-function mul(value, value2){
-    console.log(value * value2)
-}
+const playTheGame = (human, machine) => {
 
-sum(5, 6)
-sub(60, 10)
-div(87, 9)
-mul(12, 33)
+    console.log('Humano: ' + human + ' Maquina: ' + machine)
 
-*/
+    if(human === machine){
+        result.innerHTML = "Empate"
+        resultImg.src="./empatia.png"
 
-/*
-    Calcula Desconto:
-    Todos os produtos  acima de R$ 30,00 tem desconto de 10%
+    }else if(human === 'paper' && machine === 'rock' || human === 'rock' && machine === 'scissors'
+    || human === 'scissors' && machine ==='paper'){
+        humanScoreNumber++
+        humanScore.innerHTML = humanScoreNumber
+        result.innerHTML = "Você Ganhou"
+        resultImg.src="./vitoria.png"
 
-*/
-
-const cart = [10, 244, 99, 2, 20, 33, 250]
-
-//função para calcular o preço com desconto 
-
-function desconto(){
-    for(let = i; i< ; i++){
-
+    }else {
+        machineScoreNumber++
+        machineScore.innerHTML = machineScoreNumber
+        result.innerHTML = "Você perdeu para Alexa"
+        resultImg.src="./choro.png"
     }
 }
